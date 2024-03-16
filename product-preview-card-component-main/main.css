@@ -1,0 +1,120 @@
+/* custom properties */
+
+:root {
+  --clr-primary-400: hsl(158, 36%, 37%);
+  --clr-primary-700: hsl(158, 36%, 20%);
+  --clr-primary-200: hsl(30, 38%, 92%);
+
+  --clr-neutral-900: hsl(212, 21%, 14%);
+  --clr-neutral-400: hsl(228, 12%, 48%);
+  --clr-neutral-100: hsl(0, 0%, 100%);
+
+  --ff-mont: "Montserrat", sans-serif;
+  --ff-fraun: "Fraunces", serif;
+
+  --fw-regular: 500;
+  --fw-bold: 700;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  font-family: var(--ff-mont);
+  font-weight: var(--fw-regular);
+  font-size: 0.75rem;
+  background-color: var(--clr-primary-200);
+  color: var(--clr-neutral-400);
+
+  margin: 1rem;
+  overflow: hidden;
+
+  line-height: 1.6;
+}
+.product {
+  background-color: var(--clr-neutral-100);
+  border-radius: 0.5rem;
+  max-width: 600px;
+  overflow: hidden;
+}
+picture,
+img {
+  display: block;
+  max-width: 100%;
+}
+.product__content {
+  padding: 1.5rem;
+  display: grid;
+  gap: 0.75rem;
+}
+.product__category {
+  text-transform: uppercase;
+  letter-spacing: 0.3rem;
+  color: var(--clr-neutral-400);
+}
+.product__heading {
+  font-family: var(--ff-fraun);
+  font-weight: var(--fw-bold);
+  font-size: 2.1rem;
+  color: var(--clr-neutral-900);
+  line-height: 1;
+}
+.product__info {
+  font-size: 0.88rem;
+  margin-block: 0.25rem;
+}
+.product__pricing {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+.cutoff__price {
+  font-family: var(--ff-fraun);
+  font-weight: var(--fw-bold);
+  font-size: 2rem;
+  color: var(--clr-primary-400);
+}
+.original__price {
+  text-decoration: line-through;
+}
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.9rem 2.25rem;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  border: none;
+  border-radius: 0.5rem;
+  background-color: var(--clr-primary-400);
+  color: var(--clr-neutral-100);
+
+  font-family: var(--ff-mont);
+  font-weight: var(--fw-bold);
+  font-size: 0.8rem;
+}
+.btn:hover,
+.btn:focus {
+  background-color: var(--clr-primary-700);
+}
+.btn:active {
+  background-color: hsl(158, 39%, 28%);
+}
+
+@media (min-width: 610px) {
+  .product {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .product__content {
+    padding: 2rem;
+  }
+}

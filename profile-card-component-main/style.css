@@ -1,0 +1,118 @@
+:root {
+  /* COLORS */
+  --primary-color-light: hsl(185, 75%, 39%);
+  --primary-color-dark: hsl(229, 23%, 23%);
+  --primary-color-gray: hsl(227, 10%, 46%);
+
+  --neutral-color-dark: hsl(0, 0%, 59%);
+
+  /* FONT FAMILY */
+  --ff-kumbhsans: "Kumbh Sans", serif;
+
+  /* FONT SIZE */
+  --fs-head: 1.25rem;
+  --fs-para-one: 1rem;
+  --fs-para-two: 0.65rem;
+
+  /* FONT WEIGHT */
+  --fw-regular: 400;
+  --fw-bold: 700;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body {
+  font-family: var(--ff-kumbhsans);
+  font-size: var(--fs-para-one);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--primary-color-light);
+}
+.image-top {
+  position: absolute;
+  background-image: url(images/bg-pattern-top.svg);
+  width: 50%;
+  height: 60%;
+  background-position: 100% 100%;
+
+  left: 0;
+  top: 0;
+  z-index: -1;
+}
+.image-bottom {
+  position: absolute;
+  background-image: url(images/bg-pattern-bottom.svg);
+  width: 50%;
+  height: 50%;
+
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  border-radius: 1rem;
+
+  box-shadow: 0px 0px 15px 4px rgba(45, 50, 72, 0.1);
+}
+
+.profile__bg {
+  border-radius: 1rem 1rem 0 0;
+}
+.profile__details {
+  background-color: #fff;
+  border-radius: 0 0 1rem 1rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.profile__details img {
+  border-radius: 50%;
+  border: 5px solid #fff;
+  margin-top: -3.3rem;
+}
+.profile__details h1 {
+  font-size: var(--fs-head);
+  margin-top: 0.5rem;
+  color: var(--primary-color-dark);
+}
+.profile__details h1 span {
+  padding-left: 0.75rem;
+  font-weight: var(--fw-regular);
+  color: var(--neutral-color-dark);
+}
+.profile__details p {
+  margin-top: -0.25rem;
+  margin-bottom: 0.75rem;
+  color: var(--neutral-color-dark);
+}
+.profile__info {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+  padding-block: 1.75rem;
+  padding-right: 1rem;
+  border-radius: 0 0 1rem 1rem;
+  border-top: 1px solid var(--neutral-color-dark);
+}
+
+.profile__info h2 {
+  font-size: var(--fs-head);
+  padding-bottom: 0.25rem;
+  color: var(--primary-color-dark);
+}
+.info p {
+  font-size: var(--fs-para-two);
+  letter-spacing: 2px;
+  margin: 0;
+}
