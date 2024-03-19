@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Young+Serif&display=swap");
+
 :root {
   /* Primary */
   --color-primary-nutmeg: hsl(14, 45%, 36%);
@@ -18,6 +20,7 @@
   --fw-bold: 700;
   /* size */
   --fs-p: 1rem;
+  --fs-p1: 1.25rem;
 }
 * {
   box-sizing: border-box;
@@ -60,9 +63,11 @@ body {
       padding: 2rem;
       background-color: var(--color-neutral-eggShell);
 
-      h3 {
+      p {
         color: var(--color-primary-darkRaspberry);
         margin-bottom: 0.75rem;
+        font-size: var(--fs-p1);
+        font-weight: var(--fw-semi-bold);
       }
 
       li {
