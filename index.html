@@ -12,11 +12,16 @@
     <header class="p-8">
       <h1 class="text-2xl text-center uppercase">Solutions</h1>
     </header>
-    <main class="flex gap-4 flex-wrap justify-center">
+    <main
+      style="
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        padding: 1rem;
+        gap: 1rem;
+      "
+    >
       <!-- card-1 -->
-      <div
-        class="max-w-xs p-4 bg-neutral-100 rounded-xl border border-slate-200"
-      >
+      <div class="p-4 bg-neutral-100 rounded-xl border border-slate-200">
         <img
           src="preview designs/product-card-preview.jpg"
           class="mb-4 rounded-lg"
@@ -35,9 +40,7 @@
         </div>
       </div>
       <!-- card-2 -->
-      <div
-        class="max-w-xs p-4 bg-neutral-100 rounded-xl border border-slate-200"
-      >
+      <div class="p-4 bg-neutral-100 rounded-xl border border-slate-200">
         <img
           src="preview designs/profile-card-preview.jpg"
           class="mb-4 rounded-lg"
@@ -56,9 +59,7 @@
         </div>
       </div>
       <!-- card-3 -->
-      <div
-        class="max-w-xs p-4 bg-neutral-100 rounded-xl border border-slate-200"
-      >
+      <div class="p-4 bg-neutral-100 rounded-xl border border-slate-200">
         <img
           src="preview designs/qr-code-preview.jpg"
           class="mb-4 rounded-lg"
@@ -77,9 +78,7 @@
         </div>
       </div>
       <!-- card-4 -->
-      <div
-        class="max-w-xs p-4 bg-neutral-100 rounded-xl border border-slate-200"
-      >
+      <div class="p-4 bg-neutral-100 rounded-xl border border-slate-200">
         <img
           src="preview designs/recipe-page-preview.jpg"
           class="mb-4 rounded-lg"
@@ -93,6 +92,25 @@
           <a
             class="p-2 rounded-lg text-sm font-semibold uppercase text-center text-slate-100 tracking-wider bg-cyan-500 hover:bg-cyan-600 transition-all"
             href="recipe-page-main/index.html"
+            >click</a
+          >
+        </div>
+      </div>
+      <!-- card-5 -->
+      <div class="p-4 bg-neutral-100 rounded-xl border border-slate-200">
+        <img
+          src="preview designs/news-homepage-preview.jpg"
+          class="mb-4 rounded-lg"
+          alt=""
+        />
+        <div class="grid gap-4">
+          <h2>new-homepage-main</h2>
+          <p class="text-slate-500">
+            solution of the mentioned challenge, click the button below to see
+          </p>
+          <a
+            class="p-2 rounded-lg text-sm font-semibold uppercase text-center text-slate-100 tracking-wider bg-cyan-500 hover:bg-cyan-600 transition-all"
+            href="./news-homepage-main/index.html"
             >click</a
           >
         </div>
