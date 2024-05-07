@@ -5,10 +5,6 @@ const menuImg = document.querySelector(".menu_image");
 let change = false;
 menuBtn.addEventListener("click", () => {
   nav.classList.toggle("animate");
-  if (!change) {
-    menuImg.setAttribute("src", "./assets/images/icon-menu-close.svg");
-    change = true;
-  } else {
-    menuImg.setAttribute("src", "./assets/images/icon-menu.svg");
-  }
+  if (!change) menuImg.setAttribute("src", "./assets/images/icon-menu.svg");
+  else menuImg.setAttribute("src", "./assets/images/icon-menu-close.svg");
 });
