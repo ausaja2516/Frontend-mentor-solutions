@@ -1,0 +1,188 @@
+@import url("https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+  --almostWhite: hsl(0, 0%, 98%);
+  --mediumGray: hsl(0, 0%, 41%);
+  --almostBlack: hsl(0, 0%, 8%);
+
+  --fs-body-one: 0.925rem;
+  --fs-body-two: 1.1rem;
+
+  --ff-Epilogue: "Epilogue", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+body {
+  font-family: var(--ff-Epilogue);
+  background-color: var(--almostWhite);
+  font-size: var(--fs-body-one);
+}
+/* custom container */
+.cs-container {
+  gap: 2rem;
+  padding-top: 1rem;
+  padding-inline: 2rem;
+}
+/* custom navbar  */
+.cs-navbar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  backdrop-filter: blur(5px);
+  background-color: transparent;
+}
+/* custom navbar toggler  */
+.cs-navbar-toggler {
+  border: none;
+  z-index: 999;
+}
+
+/* custom navbar list and links  */
+.cs-navbar-nav li a {
+  font-size: 0.8rem;
+  color: var(--mediumGray);
+  margin-right: 0.5rem;
+}
+.cs-navbar-nav li a:hover,
+.cs-nav-btn:hover {
+  color: var(--almostBlack) !important;
+}
+
+/* custom navbar toggler-icon change and mobile nav animation  */
+.cs-navbar-toggler[aria-expanded="true"] + .cs-navbar-nav.show {
+  translate: 0;
+}
+.cs-navbar-toggler[aria-expanded="true"] ~ .overlay {
+  translate: 0;
+}
+.cs-navbar-toggler-icon {
+  background-image: url(./images/icon-menu.svg);
+  background-size: auto;
+}
+.cs-navbar-toggler[aria-expanded="true"] .cs-navbar-toggler-icon {
+  background-image: url(./images/icon-close-menu.svg);
+}
+
+/* nav buttons */
+.cs-nav-btn {
+  background-color: transparent !important;
+  color: var(--mediumGray) !important;
+  border-radius: 1rem !important;
+}
+
+.cs-btn_login,
+.cs-btn_login:hover {
+  border: none !important;
+}
+/* dropdown icon change */
+.cs-navbar-list .dropdown a[aria-expanded="true"] img {
+  content: url(./images/icon-arrow-up.svg);
+  filter: contrast(400%);
+}
+
+/* custom dropdown */
+.cs-dropdown {
+  min-width: unset !important;
+  border: none;
+  background-color: white !important;
+  box-shadow: 0px 0px 20px 7px rgba(0, 0, 0, 0.1) !important;
+  padding: 1rem 1.25rem;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+  li a {
+    padding: 0;
+    margin: 0;
+    transition: all 300ms ease-in-out;
+  }
+  li a:hover {
+    background-color: transparent !important;
+    color: var(--almostBlack);
+  }
+  li img {
+    object-fit: contain;
+  }
+}
+/* main */
+main {
+  margin-block: 6rem 1rem;
+  text-wrap: balance;
+
+  p {
+    color: var(--mediumGray);
+  }
+}
+/* main button */
+.cs-btn {
+  border-radius: 0.725rem;
+  font-size: var(--fs-body-one);
+  color: var(--almostWhite);
+  padding: 0.75em 1.75em;
+  background-color: var(--almostBlack);
+  transition: all 300ms ease-in-out !important;
+}
+.cs-btn:hover,
+.cs-btn:active,
+.cs-btn:focus {
+  background-color: transparent;
+  color: var(--almostBlack);
+  border: 1px solid var(--almostBlack);
+}
+
+@media (min-width: 768px) {
+  main {
+    p {
+      font-size: var(--fs-body-two);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .cs-navbar-nav {
+    position: fixed;
+    inset: 0 0 0 30%;
+    min-height: 100vh;
+    padding: min(30vh, 5rem) 1.5rem;
+    background-color: var(--almostWhite);
+    translate: 100%;
+
+    justify-content: start;
+    transition: all 300ms ease-in-out;
+    z-index: 2;
+
+    li {
+      width: max-content;
+    }
+    .cs-nav-btn {
+      padding: 0.5rem 3.5rem;
+    }
+  }
+
+  .overlay {
+    position: fixed;
+    inset: 0;
+    min-height: 100vh;
+    background-color: var(--almostBlack);
+    opacity: 0.3;
+
+    z-index: -1;
+
+    translate: 100%;
+    transition: all 300ms ease-in-out;
+  }
+  .cs-dropdown {
+    background-color: transparent !important;
+    box-shadow: none !important;
+  }
+}
