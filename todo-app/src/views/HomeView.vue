@@ -1,17 +1,16 @@
 <script setup>
-import Tasks from "@/components/Tasks.vue";
+import Todos from "@/components/Todos.vue";
 </script>
 
 <template>
-  <main
-    class="grid min-h-screen place-items-center font-mono text-gray-50 bg-slate-950"
-  >
-    <img
-      class="fixed top-0 z-0"
-      src="https://todo-app-fementor-rc60gijyw-quangnphan.vercel.app/images/bg-desktop-dark.jpg"
-      alt=""
-      srcset=""
-    />
-    <Tasks />
+  <main class="max-w-screen-sm mx-auto -mt-[4.825rem] sm:-mt-12 px-8">
+    <Todos />
+    <Teleport to="body">
+      <p
+        class="text-center w-full absolute bottom-5 text-sm font-semibold text-LT_darkGrayishBlue dark:text-DT_veryDarkGrayishBlue font-Josefin"
+      >
+        Drag and drop to reorder list
+      </p>
+    </Teleport>
   </main>
 </template>
