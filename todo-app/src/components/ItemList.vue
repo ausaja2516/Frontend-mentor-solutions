@@ -83,7 +83,6 @@ const onDrop = (event, targetIndex) => {
   }
   if (selectedTab.value === "Active") {
     const getDraggableitem = props.items.splice(draggableItemIndex, 1)[0];
-
     return props.items.splice(targetIndex, 0, getDraggableitem);
   }
   if (selectedTab.value === "Completed") {
