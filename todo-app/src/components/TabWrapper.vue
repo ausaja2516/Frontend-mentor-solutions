@@ -42,14 +42,14 @@
 </template>
 
 <script setup>
-import { useCounterStore } from "@/stores/TodoStore";
+import { useTodoStore } from "@/stores/TodoStore";
 import { breakpointsTailwind, useBreakpoints } from "@vueuse/core";
 import { useSlots, ref, provide } from "vue";
 
 const breakpoints = useBreakpoints(breakpointsTailwind);
 const isDesktop = breakpoints.greater("sm");
 
-const todos = useCounterStore();
+const todos = useTodoStore();
 const slots = useSlots();
 const tabTitle = slots.default().map((t) => t.props.tab);
 const selectedTab = ref(tabTitle[0]);

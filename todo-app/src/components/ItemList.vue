@@ -2,16 +2,16 @@
   <div v-if="todos.items.length && tab === selectedTab">
     <ul
       class="max-h-[340px] overflow-y-auto bg-LT_veryLightGray dark:bg-DT_veryDarkDesaturatedBlue divide-y divide-LT_lightGrayishBlue dark:divide-DT_veryDarkGrayishBlue rounded-t-md shadow-xl"
-      @drop="onDrop($event, items)"
-      @dragenter.prevent
-      @dragover.prevent
     >
       <Item
-        v-for="item in items"
+        v-for="(item, index) in items"
         :key="item.id"
         :item="item"
         draggable="true"
-        @dragstart="startDrag($event, item)"
+        @dragstart="startDrag($event, index)"
+        @drop="onDrop($event, index)"
+        @dragenter.prevent
+        @dragover.prevent
       >
         <button
           title="undo-items"
@@ -48,13 +48,13 @@
 
 <script setup>
 import Item from "@/components/Item.vue";
-import { useCounterStore } from "@/stores/TodoStore";
-import { ref, inject } from "vue";
-const todos = useCounterStore();
+import { useTodoStore } from "@/stores/TodoStore";
+import { inject, onUpdated } from "vue";
+const todos = useTodoStore();
 
 const selectedTab = inject("selectedTab");
 
-defineProps({
+const props = defineProps({
   tab: {
     type: String,
     default: "",
@@ -65,16 +65,30 @@ defineProps({
   },
 });
 
-const startDrag = (event, item) => {
+const startDrag = (event, index) => {
   event.dataTransfer.dropEffect = "move";
   event.dataTransfer.effectAllowed = "move";
-  event.dataTransfer.setData("itemtitle", item.title);
+  event.dataTransfer.setData("draggableItemIndex", index);
 };
-const onDrop = (event, items) => {
-  const itemtitle = event.dataTransfer.getData("itemtitle");
-  console.log(itemtitle);
-  const item = items.find((item) => item.title === itemtitle);
-  console.log(item);
-  item.title = itemtitle;
+const onDrop = (event, targetIndex) => {
+  event.dataTransfer.dropEffect = "move";
+  const draggableItemIndex = event.dataTransfer.getData("draggableItemIndex");
+  if (selectedTab.value === "Removed") {
+    const getDraggableitem = props.items.splice(draggableItemIndex, 1)[0];
+    return props.items.splice(targetIndex, 0, getDraggableitem);
+  }
+  if (selectedTab.value === "All") {
+    const getDraggableitem = props.items.splice(draggableItemIndex, 1)[0];
+    return props.items.splice(targetIndex, 0, getDraggableitem);
+  }
+  if (selectedTab.value === "Active") {
+    const getDraggableitem = props.items.splice(draggableItemIndex, 1)[0];
+
+    return props.items.splice(targetIndex, 0, getDraggableitem);
+  }
+  if (selectedTab.value === "Completed") {
+    const getDraggableitem = props.items.splice(draggableItemIndex, 1)[0];
+    return props.items.splice(targetIndex, 0, getDraggableitem);
+  }
 };
 </script>

@@ -12,7 +12,7 @@
 <script setup>
 import ItemList from "@/components/ItemList.vue";
 import TabWrapper from "./TabWrapper.vue";
-import { useCounterStore } from "@/stores/TodoStore";
+import { useTodoStore } from "@/stores/TodoStore";
 
-const todos = useCounterStore();
+const todos = useTodoStore();
 </script>

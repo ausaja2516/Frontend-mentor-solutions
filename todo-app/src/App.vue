@@ -1,13 +1,13 @@
 <script setup>
 import { RouterView } from "vue-router";
-import { useCounterStore } from "@/stores/TodoStore";
+import { useTodoStore } from "@/stores/TodoStore";
 import { ref } from "vue";
 import { useDark, useToggle } from "@vueuse/core";
 
 const isDark = useDark();
 const toggleTheme = useToggle(isDark);
 
-const todos = useCounterStore();
+const todos = useTodoStore();
 const inputValue = ref("");
 </script>
 
