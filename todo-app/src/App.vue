@@ -17,9 +17,9 @@ const inputValue = ref("");
   >
     <header :class="isDark ? 'bg-header_dark' : 'bg-header_light'">
       <div
-        class="flex flex-col gap-7 pt-12 sm:pt-16 max-w-screen-sm mx-auto px-8"
+        class="flex flex-col gap-4 sm:gap-7 pt-10 sm:pt-16 max-w-screen-sm mx-auto px-8"
       >
-        <div class="flex justify-between items-center">
+        <div class="flex justify-between items-baseline">
           <h1
             class="text-3xl uppercase font-bold tracking-[0.4em] text-LT_veryLightGray"
           >
@@ -97,6 +97,9 @@ header {
 }
 
 @media (max-width: 640px) {
+  header {
+    min-height: 25vh;
+  }
   .bg-header_dark {
     background-image: url(./assets/images/bg-mobile-dark.jpg);
   }

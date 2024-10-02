@@ -3,11 +3,11 @@ import Todos from "@/components/Todos.vue";
 </script>
 
 <template>
-  <main class="max-w-screen-sm mx-auto -mt-[4.825rem] sm:-mt-12 px-8">
+  <main class="max-w-screen-sm mx-auto -mt-[0.925rem] sm:-mt-12 px-8">
     <Todos />
     <Teleport to="body">
       <p
-        class="text-center w-full absolute bottom-5 text-sm font-semibold text-LT_darkGrayishBlue dark:text-DT_veryDarkGrayishBlue font-Josefin"
+        class="text-center w-full fixed bottom-5 text-sm font-semibold text-LT_darkGrayishBlue dark:text-DT_veryDarkGrayishBlue font-Josefin"
       >
         Drag and drop to reorder list
       </p>

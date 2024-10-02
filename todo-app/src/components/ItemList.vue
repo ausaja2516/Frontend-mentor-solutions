@@ -28,7 +28,7 @@
           v-else
           title="remove-items"
           @click="todos.removeItem(item)"
-          class="order-3 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in-out relative"
+          class="order-3 flex items-center justify-center opacity-0 group-hover:opacity-100 group-active:opacity-100 group-focus:opacity-100 transition-all duration-300 ease-in-out relative"
         >
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18">
             <path
@@ -49,7 +49,7 @@
 <script setup>
 import Item from "@/components/Item.vue";
 import { useTodoStore } from "@/stores/TodoStore";
-import { inject, onUpdated } from "vue";
+import { inject } from "vue";
 const todos = useTodoStore();
 
 const selectedTab = inject("selectedTab");
