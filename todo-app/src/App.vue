@@ -1,27 +1,23 @@
 <script setup>
 import { RouterView } from "vue-router";
-import { useTodoStore } from "@/stores/TodoStore";
-import { ref } from "vue";
 import { useDark, useToggle } from "@vueuse/core";
 
 const isDark = useDark();
 const toggleTheme = useToggle(isDark);
-
-const todos = useTodoStore();
-const inputValue = ref("");
 </script>
 
 <template>
   <div
-    class="min-h-screen bg-LT_veryLightGrayishBlue text-LT_veryDarkGrayishBlue dark:bg-DT_veryDarkBlue dark:text-DT_lightGrayishBlue font-Josefin"
+    class="min-h-screen grid bg-LT_veryLightGrayishBlue text-LT_veryDarkGrayishBlue dark:bg-DT_veryDarkBlue dark:text-DT_lightGrayishBlue font-Josefin text-sm sm:text-base"
   >
-    <header :class="isDark ? 'bg-header_dark' : 'bg-header_light'">
-      <div
-        class="flex flex-col gap-4 sm:gap-7 pt-10 sm:pt-16 max-w-screen-sm mx-auto px-8"
-      >
+    <header
+      :class="isDark ? 'bg-header_dark' : 'bg-header_light'"
+      class="bg-gradient-to-br from-check_P_bgClr to-check_S_bgClr"
+    >
+      <div class="flex flex-col max-w-screen-sm mx-auto px-6 sm:px-0 -mt-4">
         <div class="flex justify-between items-baseline">
           <h1
-            class="text-3xl uppercase font-bold tracking-[0.4em] text-LT_veryLightGray"
+            class="text-3xl uppercase font-bold tracking-[0.4em] text-LT_veryLightGray leading-none"
           >
             Todo
           </h1>
@@ -56,30 +52,24 @@ const inputValue = ref("");
             </svg>
           </button>
         </div>
-        <form
-          @submit.prevent="todos.addItems(inputValue), (inputValue = '')"
-          class="flex items-center gap-5 py-3 px-4 bg-LT_veryLightGray dark:bg-DT_veryDarkDesaturatedBlue shadow-xl rounded-md"
-        >
-          <span
-            class="h-6 w-6 rounded-[50%] border border-LT_veryLightGrayishBlue dark:border-DT_veryDarkGrayishBlue"
-          ></span>
-          <input
-            v-model="inputValue"
-            type="text"
-            class="flex-1 bg-transparent outline-none caret-blue-600 placeholder:text-LT_darkGrayishBlue"
-            placeholder="Create a new todo"
-          />
-        </form>
       </div>
     </header>
-    <RouterView />
+    <RouterView v-slot="{ Component }">
+      <Transition name="page" mode="out-in">
+        <component :is="Component" />
+      </Transition>
+    </RouterView>
+    <p
+      class="text-center self-end pb-3 text-sm font-semibold text-LT_darkGrayishBlue dark:text-DT_veryDarkGrayishBlue"
+    >
+      Drag and drop to reorder list
+    </p>
   </div>
 </template>
 
 <style>
 header {
-  background-repeat: no-repeat;
-  min-height: 38vh;
+  padding-block: 6rem;
   background-size: cover;
 }
 .bg-header_dark {
@@ -98,7 +88,7 @@ header {
 
 @media (max-width: 640px) {
   header {
-    min-height: 25vh;
+    padding-block: 3rem;
   }
   .bg-header_dark {
     background-image: url(./assets/images/bg-mobile-dark.jpg);
@@ -106,5 +96,16 @@ header {
   .bg-header_light {
     background-image: url(./assets/images/bg-mobile-light.jpg);
   }
+}
+
+.page-enter-active,
+.page-leave-active {
+  transition: all 600ms ease-in-out;
+}
+
+.page-enter-from,
+.page-leave-from {
+  opacity: 0;
+  scale: 0.5;
 }
 </style>

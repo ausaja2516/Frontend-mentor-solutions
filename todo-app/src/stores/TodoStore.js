@@ -51,11 +51,16 @@ export const useTodoStore = defineStore("todos", {
         return !item.isComplete;
       });
     },
+
     undoRemoved(itemClicked) {
       this.items.push(itemClicked);
       this.removedItems = this.removedItems.filter(
         (item) => item !== itemClicked
       );
+    },
+
+    deleteItem(itemClicked) {
+      this.removedItems = this.removedItems.filter((i) => i !== itemClicked);
     },
   },
 

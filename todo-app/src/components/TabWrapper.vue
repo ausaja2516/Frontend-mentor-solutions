@@ -13,7 +13,7 @@
 
       <Teleport to="body" :disabled="isDesktop">
         <ul
-          class="flex items-center justify-center gap-4 font-bold text-sm fixed bottom-16 left-8 right-8 max-w-screen-sm font-Josefin text-LT_darkGrayishBlue dark:text-DT_darkGrayishBlue bg-LT_veryLightGray dark:bg-DT_veryDarkDesaturatedBlue rounded-md p-4 flex-wrap sm:static sm:p-0"
+          class="flex items-center justify-center gap-4 font-bold text-sm absolute bottom-16 left-6 right-6 max-w-screen-sm font-Josefin text-LT_darkGrayishBlue dark:text-DT_darkGrayishBlue bg-LT_veryLightGray dark:bg-DT_veryDarkDesaturatedBlue rounded-md p-4 flex-wrap sm:static sm:p-0"
         >
           <li
             v-for="(tab, i) in tabTitle"

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <li class="flex gap-5 items-center p-4 group">
+    <li class="flex gap-4 items-center p-4 group cursor-move">
       <div class="contents">
         <p
           @click="item.isComplete = !item.isComplete"
@@ -12,7 +12,6 @@
         >
           {{ item.title }}
         </p>
-
         <button
           @click="item.isComplete = !item.isComplete"
           title="mark as complete"
@@ -55,3 +54,17 @@ defineProps({
   },
 });
 </script>
+
+<style scoped>
+.drag > li {
+  rotate: 8deg;
+  border: 1px solid;
+}
+.ghost {
+  background: rgb(100, 100, 100);
+  opacity: 0.1;
+}
+.ghost > li {
+  visibility: hidden;
+}
+</style>

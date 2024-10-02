@@ -8,8 +8,16 @@ const router = createRouter({
       path: "/",
       name: "home",
       component: HomeView,
+      meta: {
+        title: "Home",
+      },
     },
   ],
+});
+
+router.beforeEach((to, _, next) => {
+  document.title = `${to.meta.title} | TodosTrack`;
+  next();
 });
 
 export default router;
