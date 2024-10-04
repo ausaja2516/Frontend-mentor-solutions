@@ -59,7 +59,7 @@ defineProps({
 .drag > div > li {
   rotate: 8deg;
 }
-.drag[draggable="true"] {
+.drag[draggable="true"] > div {
   border: none;
 }
 .ghost > div {

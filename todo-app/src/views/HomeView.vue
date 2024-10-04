@@ -21,7 +21,7 @@ const todos = useTodoStore();
       <input
         v-model="inputValue"
         type="text"
-        class="flex-1 bg-transparent outline-none caret-blue-600 placeholder:text-LT_darkGrayishBlue"
+        class="flex-1 bg-transparent outline-none caret-P_brightBlue placeholder:text-LT_darkGrayishBlue"
         placeholder="Create a new todo"
       />
     </form>

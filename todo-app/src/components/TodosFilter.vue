@@ -18,7 +18,7 @@
           :key="i"
           class="cursor-pointer transition-all duration-300"
           :class="{
-            'text-blue-600': tab === currentTab,
+            'text-P_brightBlue': tab === currentTab,
             'hover:text-LT_veryDarkGrayishBlue dark:hover:text-DT_lightGrayishBlueHover':
               tab !== currentTab,
           }"

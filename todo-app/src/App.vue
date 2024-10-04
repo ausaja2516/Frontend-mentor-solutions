@@ -8,7 +8,7 @@ const toggleTheme = useToggle(isDark);
 
 <template>
   <div
-    class="min-h-screen grid bg-LT_veryLightGrayishBlue text-LT_veryDarkGrayishBlue dark:bg-DT_veryDarkBlue dark:text-DT_lightGrayishBlue font-Josefin text-sm sm:text-base"
+    class="min-h-svh grid bg-LT_veryLightGrayishBlue text-LT_veryDarkGrayishBlue dark:bg-DT_veryDarkBlue dark:text-DT_lightGrayishBlue font-Josefin text-sm sm:text-base"
   >
     <header
       :class="isDark ? 'bg-header_dark' : 'bg-header_light'"
@@ -85,8 +85,19 @@ header {
 ::-webkit-scrollbar {
   display: none;
 }
-
 @media (max-width: 640px) {
+  ::-webkit-scrollbar {
+    display: block;
+    width: 0.3rem;
+    height: 0.3rem;
+    border-radius: 2rem;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(220, 98%, 61%);
+    border-radius: 1rem;
+
+    cursor: pointer;
+  }
   header {
     padding-block: 3rem;
   }
