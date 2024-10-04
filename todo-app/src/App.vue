@@ -86,18 +86,6 @@ header {
   display: none;
 }
 @media (max-width: 640px) {
-  ::-webkit-scrollbar {
-    display: block;
-    width: 0.3rem;
-    height: 0.3rem;
-    border-radius: 2rem;
-  }
-  ::-webkit-scrollbar-thumb {
-    background: hsl(220, 98%, 61%);
-    border-radius: 1rem;
-
-    cursor: pointer;
-  }
   header {
     padding-block: 3rem;
   }
