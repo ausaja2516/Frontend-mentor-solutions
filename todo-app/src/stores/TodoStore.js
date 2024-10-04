@@ -1,24 +1,25 @@
+import { useLocalStorage } from "@vueuse/core";
 import { defineStore } from "pinia";
 
 export const useTodoStore = defineStore("todos", {
   // data
   state() {
     return {
-      items: [
+      items: useLocalStorage("items", [
         { id: 0, title: "Complete online JS course", isComplete: true },
         { id: 1, title: "Drink coffee at 2pm", isComplete: false },
         { id: 2, title: "Jog around the part", isComplete: false },
         { id: 3, title: "Read for 1 hour", isComplete: false },
         { id: 4, title: "Pick up groceries", isComplete: false },
         { id: 5, title: "Complete this Todo App on FM", isComplete: false },
-      ],
-      removedItems: [
+      ]),
+      removedItems: useLocalStorage("removedItems", [
         {
           id: 6,
           title: "This is a removed item",
           isComplete: false,
         },
-      ],
+      ]),
     };
   },
 
@@ -39,6 +40,7 @@ export const useTodoStore = defineStore("todos", {
         if (item === itemClicked) {
           this.removedItems.push(item);
         }
+
         return item !== itemClicked;
       });
     },
@@ -48,12 +50,14 @@ export const useTodoStore = defineStore("todos", {
         if (item.isComplete) {
           this.removedItems.push(item);
         }
+
         return !item.isComplete;
       });
     },
 
     undoRemoved(itemClicked) {
       this.items.push(itemClicked);
+
       this.removedItems = this.removedItems.filter(
         (item) => item !== itemClicked
       );

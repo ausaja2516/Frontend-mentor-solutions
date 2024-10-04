@@ -60,7 +60,7 @@ const toggleTheme = useToggle(isDark);
       </Transition>
     </RouterView>
     <p
-      class="text-center self-end pb-3 text-sm font-semibold text-LT_darkGrayishBlue dark:text-DT_veryDarkGrayishBlue"
+      class="text-center self-end pb-5 sm:pb-3 text-sm font-semibold text-LT_darkGrayishBlue dark:text-DT_veryDarkGrayishBlue"
     >
       Drag and drop to reorder list
     </p>

@@ -56,15 +56,17 @@ defineProps({
 </script>
 
 <style scoped>
-.drag > li {
+.drag > div > li {
   rotate: 8deg;
-  border: 1px solid;
 }
-.ghost {
+.drag[draggable="true"] {
+  border: none;
+}
+.ghost > div {
   background: rgb(100, 100, 100);
   opacity: 0.1;
 }
-.ghost > li {
+.ghost > div > li {
   visibility: hidden;
 }
 </style>
